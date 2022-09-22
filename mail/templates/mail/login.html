@@ -2,8 +2,8 @@
 
 {% block body %}
 
-    {% if first_time %}
-        <script>alert("testing")</script>
+    {% if first_time == True%}
+        <script>alert("This project is configure to send and receive mails on this server only. It doesn't mean to send mails on cross servers like Gmail, Yahoo, etc.")</script>
     {% endif %}
 
     <h2>Login</h2>
