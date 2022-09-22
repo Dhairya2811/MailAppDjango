@@ -10,6 +10,9 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import User, Email
 
 
+global first_time
+first_time = True
+
 def index(request):
 
     # Authenticated users view their inbox
@@ -144,7 +147,10 @@ def login_view(request):
                 "message": "Invalid email and/or password."
             })
     else:
-        return render(request, "mail/login.html")
+        global first_time
+        if first_time == True:
+            first_time = False
+        return render(request, "mail/login.html", {"first_time": "True"})
 
 
 def logout_view(request):
